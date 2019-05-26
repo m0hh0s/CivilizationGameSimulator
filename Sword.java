@@ -1,7 +1,7 @@
 public class Sword extends Weapon {
 
-    public Sword(Being owner) {
-        super(2000 , 1 , owner);
+    public Sword() {
+        super(2000 , 1);
     }
 
     @Override

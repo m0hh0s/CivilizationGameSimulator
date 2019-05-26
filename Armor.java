@@ -7,4 +7,11 @@ public class Armor {
         this.weight = weight;
     }
 
+    public int getDamageReduction() {
+        return damageReduction;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
 }

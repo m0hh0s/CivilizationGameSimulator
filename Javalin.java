@@ -1,6 +1,6 @@
 public class Javalin extends Weapon {
-    public Javalin(Being owner) {
-        super(1500, 2, owner);
+    public Javalin() {
+        super(1500, 2);
     }
 
     @Override

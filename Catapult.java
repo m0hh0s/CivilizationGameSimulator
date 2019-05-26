@@ -1,6 +1,6 @@
 public class Catapult extends Weapon {
-    public Catapult(Being owner) {
-        super(2500, 10, owner);
+    public Catapult() {
+        super(2500, 10);
 
     }
 

@@ -1,14 +1,17 @@
 public abstract class Being {
-    private Location location;
+    private int ID;
+    protected Location location;
     private Weapon weapon;
     private Armor armor;
-    private boolean isAlive;
+    protected boolean isAlive;
 
-    public Being(Location location, Weapon weapon, Armor armor, boolean isAlive) {
+    public Being(int ID, Weapon weapon, Armor armor, Location location) {
+        this.ID = ID;
         this.location = location;
+        weapon.setOwner(this);
         this.weapon = weapon;
         this.armor = armor;
-        this.isAlive = isAlive;
+        this.isAlive = true;
     }
 
     public Location getLocation() {
@@ -23,9 +26,6 @@ public abstract class Being {
         return armor;
     }
 
-    public boolean isAlive() {
-        return isAlive;
-    }
+    public abstract void attack(Soldier enemy);
 
-    public abstract void act();
 }

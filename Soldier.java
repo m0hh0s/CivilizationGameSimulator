@@ -3,11 +3,16 @@ public abstract class Soldier extends Being {
     private int hitpoints;
     private int movementDelay;
     private int attackDelay;
+    private boolean isMovingUp;
 
     public Soldier(int ID, Weapon weapon, Armor armor, Location location) {
         super(ID, weapon, armor, location);
         movementDelay += armor.getWeight();
         attackDelay = weapon.getLoadingTime();
+        if (army.getGroup().equals("group 1"))
+            isMovingUp = true;
+        else
+            isMovingUp = false;
     }
 
     public Army getArmy() {
@@ -44,12 +49,46 @@ public abstract class Soldier extends Being {
         return isAlive;
     }
 
+    private void moveRightOrLeft(){
+        try {
+            if (Map.getMap()[location.getX() + 1][location.getY()] == null){
+                location.setX(location.getX() + 1);
+                return;
+            }
+            if (Map.getMap()[location.getX() - 1][location.getY()] == null){
+                location.setX(location.getX() - 1);
+            }
+        }catch (ArrayIndexOutOfBoundsException e) {
+            if (Map.getMap()[location.getX() - 1][location.getY()] == null) {
+                location.setX(location.getX() - 1);
+            }
+        }
+    }
     public void move(){
-        if (army.getGroup().equals("group 1")){
-            location.setY(location.getY() + 1);
+        if (isMovingUp){
+            if (location.getY() + 1 == Map.getSie()){
+                isMovingUp = false;
+                move();
+            }
+            else if(Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower){
+                moveRightOrLeft();
+
+            }
+            else{
+                location.setY(location.getY() + 1);
+            }
         }
         else{
-            location.setY(location.getY() - 1);
+            if (location.getY() == 0 ){
+                isMovingUp = true;
+                move();
+            }
+            else if(Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower){
+                moveRightOrLeft();
+            }
+            else{
+                location.setY(location.getY() - 1);
+            }
         }
     }
 

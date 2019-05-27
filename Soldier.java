@@ -14,10 +14,12 @@ public class Soldier extends Being {
         return isAlive;
     }
 
-    public void move(Location target){
-        if(isAlive()){
-            location.setX(target.getX());
-            location.setY(target.getY());
+    public void move(){
+        if (army.getGroup().equals("group 1")){
+            location.setY(location.getY() + 1);
+        }
+        else{
+            location.setY(location.getY() - 1);
         }
     }
 

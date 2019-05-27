@@ -1,4 +1,4 @@
-public  abstract class Being {
+public  abstract class Being implements IAttack{
     private int ID;
     protected Location location;
     private Weapon weapon;
@@ -26,5 +26,4 @@ public  abstract class Being {
         return armor;
     }
 
-    public abstract void attack(Soldier enemy);
 }

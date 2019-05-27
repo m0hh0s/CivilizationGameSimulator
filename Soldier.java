@@ -1,4 +1,4 @@
-public class Soldier extends Being {
+public abstract class Soldier extends Being {
     private Army army;
     private int hitpoints;
     private int movementDelay;

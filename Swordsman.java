@@ -1,4 +1,4 @@
-public class Swordsman extends Soldier implements IAttack {
+public class Swordsman extends Soldier {
 
 
     public Swordsman(int ID, Army army, Location location) {

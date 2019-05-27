@@ -1,4 +1,4 @@
-public class Being {
+public  abstract class Being {
     private int ID;
     protected Location location;
     private Weapon weapon;
@@ -26,4 +26,5 @@ public class Being {
         return armor;
     }
 
+    public abstract void attack(Soldier enemy);
 }

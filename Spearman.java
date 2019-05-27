@@ -1,4 +1,4 @@
-public class Spearman extends Soldier implements IAttack{
+public class Spearman extends Soldier{
 
     public Spearman(int ID, Army army, Location location) {
         super(ID, new Javelin(), new IronArmor(), location);

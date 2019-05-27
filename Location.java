@@ -25,7 +25,10 @@ public class Location {
 
     @Override
     public boolean equals(Object obj) {
-        Location tmp = (Location) obj;
-        return (tmp.getX() == x && tmp.getY() == y);
+        if (obj instanceof Location) {
+            Location tmp = (Location) obj;
+            return (tmp.getX() == x && tmp.getY() == y);
+        }
+        return false;
     }
 }

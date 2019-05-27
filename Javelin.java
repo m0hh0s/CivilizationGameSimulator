@@ -1,5 +1,5 @@
-public class Javalin extends Weapon {
-    public Javalin() {
+public class Javelin extends Weapon {
+    public Javelin() {
         super(1500, 2);
     }
 

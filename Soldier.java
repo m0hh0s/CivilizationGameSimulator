@@ -6,6 +6,36 @@ public class Soldier extends Being {
 
     public Soldier(int ID, Weapon weapon, Armor armor, Location location) {
         super(ID, weapon, armor, location);
+        movementDelay += armor.getWeight();
+        attackDelay = weapon.getLoadingTime();
+    }
+
+    public Army getArmy() {
+        return army;
+    }
+
+    public int getMovementDelay() {
+        return movementDelay;
+    }
+
+    public int getAttackDelay() {
+        return attackDelay;
+    }
+
+    public void setArmy(Army army) {
+        this.army = army;
+    }
+
+    public void setHitpoints(int hitpoints) {
+        this.hitpoints = hitpoints;
+    }
+
+    public void setMovementDelay(int movementDelay) {
+        this.movementDelay = movementDelay;
+    }
+
+    public void setAttackDelay(int attackDelay) {
+        this.attackDelay = attackDelay;
     }
 
     public boolean isAlive(){

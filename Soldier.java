@@ -27,11 +27,6 @@ public class Soldier extends Being {
         return hitpoints;
     }
 
-    @Override
-    public void attack(Soldier enemy){
-        if (getWeapon().canHit(enemy))
-            enemy.takeDamage(getWeapon().getDamage());
-    }
 
     public void takeDamage(int damageTaken){
         hitpoints -= ( (double)getArmor().getDamageReduction() / 100.0) * damageTaken;

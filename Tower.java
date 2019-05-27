@@ -1,4 +1,4 @@
-public class Tower extends Being {
+public class Tower extends Being implements IAttack{
     public Tower(int ID, Location location) {
         super(ID, new Catapult(), new StoneArmor(), location);
     }

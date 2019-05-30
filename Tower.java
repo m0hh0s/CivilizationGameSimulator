@@ -8,4 +8,5 @@ public class Tower extends Being {
         if (getWeapon().canHit(enemy))
             enemy.takeDamage(getWeapon().getDamage());
     }
+
 }

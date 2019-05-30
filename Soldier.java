@@ -1,5 +1,5 @@
 public abstract class Soldier extends Being {
-    private Army army;
+
     private int hitpoints;
     private int movementDelay;
     private int attackDelay;
@@ -9,14 +9,7 @@ public abstract class Soldier extends Being {
         super(ID, weapon, armor, location);
         movementDelay += armor.getWeight();
         attackDelay = weapon.getLoadingTime();
-        if (army.getGroup().equals("group 1"))
-            isMovingUp = true;
-        else
-            isMovingUp = false;
-    }
-
-    public Army getArmy() {
-        return army;
+        isMovingUp = getArmy().getGroup().equals("group 1");
     }
 
     public int getMovementDelay() {
@@ -25,10 +18,6 @@ public abstract class Soldier extends Being {
 
     public int getAttackDelay() {
         return attackDelay;
-    }
-
-    public void setArmy(Army army) {
-        this.army = army;
     }
 
     public void setHitpoints(int hitpoints) {
@@ -43,51 +32,46 @@ public abstract class Soldier extends Being {
         this.attackDelay = attackDelay;
     }
 
-    public boolean isAlive(){
+    public boolean isAlive() {
         if (getHitpoints() <= 0)
             super.isAlive = false;
         return isAlive;
     }
 
-    private void moveRightOrLeft(){
+    private void moveRightOrLeft() {
         try {
-            if (Map.getMap()[location.getX() + 1][location.getY()] == null){
+            if (Map.getMap()[location.getX() + 1][location.getY()] == null) {
                 location.setX(location.getX() + 1);
                 return;
             }
-            if (Map.getMap()[location.getX() - 1][location.getY()] == null){
+            if (Map.getMap()[location.getX() - 1][location.getY()] == null) {
                 location.setX(location.getX() - 1);
             }
-        }catch (ArrayIndexOutOfBoundsException e) {
+        } catch (ArrayIndexOutOfBoundsException e) {
             if (Map.getMap()[location.getX() - 1][location.getY()] == null) {
                 location.setX(location.getX() - 1);
             }
         }
     }
 
-    public void move(){
-        if (isMovingUp){
-            if (location.getY() + 1 == Map.getSie()){
+    public void move() {
+        if (isMovingUp) {
+            if (location.getY() + 1 == Map.getSie()) {
                 isMovingUp = false;
                 move();
-            }
-            else if(Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower){
+            } else if (Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower) {
                 moveRightOrLeft();
 
-            }
-            else{
+            } else {
                 location.setY(location.getY() + 1);
             }
-        }
-        else{
-            if (location.getY() == 0 ){
+        } else {
+            if (location.getY() == 0) {
                 isMovingUp = true;
                 move();
-            }
-            else if(Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower){
+            } else if (Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower) {
                 moveRightOrLeft();
-            }
-            else{
+            } else {
                 location.setY(location.getY() - 1);
             }
         }
@@ -97,8 +81,10 @@ public abstract class Soldier extends Being {
         return hitpoints;
     }
 
-    public void takeDamage(int damageTaken){
-        hitpoints -= ( (double)getArmor().getDamageReduction() / 100.0) * damageTaken;
+    public void takeDamage(int damageTaken) {
+        hitpoints -= ((double) getArmor().getDamageReduction() / 100.0) * damageTaken;
     }
+
+
 
 }

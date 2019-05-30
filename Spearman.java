@@ -17,5 +17,6 @@ public class Spearman extends Soldier{
             }
         }
     }
+
 }
 

@@ -64,6 +64,7 @@ public abstract class Soldier extends Being {
             }
         }
     }
+
     public void move(){
         if (isMovingUp){
             if (location.getY() + 1 == Map.getSie()){
@@ -95,7 +96,6 @@ public abstract class Soldier extends Being {
     public int getHitpoints() {
         return hitpoints;
     }
-
 
     public void takeDamage(int damageTaken){
         hitpoints -= ( (double)getArmor().getDamageReduction() / 100.0) * damageTaken;

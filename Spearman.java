@@ -11,6 +11,10 @@ public class Spearman extends Soldier{
     public void attack(Soldier enemy){
         if (getWeapon().canHit(enemy)) {
             enemy.takeDamage(getWeapon().getDamage());
+            if (!enemy.isAlive()){
+                this.location.setY(enemy.getLocation().getY());
+                this.location.setX(enemy.getLocation().getX());
+            }
         }
     }
 }

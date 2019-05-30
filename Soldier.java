@@ -9,7 +9,12 @@ public abstract class Soldier extends Being {
         super(ID, weapon, armor, location);
         movementDelay += armor.getWeight();
         attackDelay = weapon.getLoadingTime();
-        isMovingUp = getArmy().getGroup().equals("group 1");
+    }
+
+    @Override
+    public void setArmy(Army army) {
+        this.army = army;
+        isMovingUp = getArmy().getGroup().equals("group 2");
     }
 
     public int getMovementDelay() {
@@ -56,7 +61,7 @@ public abstract class Soldier extends Being {
 
     public void move() {
         if (isMovingUp) {
-            if (location.getY() + 1 == Map.getSie()) {
+            if (location.getY() + 1 == Map.getSize()) {
                 isMovingUp = false;
                 move();
             } else if (Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower) {
@@ -69,7 +74,7 @@ public abstract class Soldier extends Being {
             if (location.getY() == 0) {
                 isMovingUp = true;
                 move();
-            } else if (Map.getMap()[location.getX()][location.getY() + 1] instanceof Tower) {
+            } else if (Map.getMap()[location.getX()][location.getY() - 1] instanceof Tower) {
                 moveRightOrLeft();
             } else {
                 location.setY(location.getY() - 1);

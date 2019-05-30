@@ -15,7 +15,7 @@ public class Map {
         map = map1;
     }
 
-    public static int getSie(){
+    public static int getSize(){
         return size;
     }
 }

@@ -4,7 +4,7 @@ public  abstract class Being implements IAttack , IAct{
     private Weapon weapon;
     private Armor armor;
     protected boolean isAlive;
-    private Army army;
+    protected Army army;
 
     public int getID() {
         return ID;
@@ -67,17 +67,19 @@ public  abstract class Being implements IAttack , IAct{
     @Override
     public Action act() {
         Soldier enemyToAttack = null;
-        for (int i = 0 ; i < Map.getSie() ; i++) {
-            for (int j = 0 ; j < Map.getSie() ; j++) {
+        for (int i = 0; i < Map.getSize() ; i++) {
+            for (int j = 0; j < Map.getSize() ; j++) {
                 Being target = Map.getMap()[i][j];
-                if (target.getArmy() != getArmy() && !(target instanceof Tower)) {
-                    if (getWeapon().canHit((Soldier) target)) {
-                        if (enemyToAttack != null) {
-                            if (enemyToAttack.getID() > target.getID()) {
+                if (target != null) {
+                    if (target.getArmy() != getArmy() && !(target instanceof Tower)) {
+                        if (getWeapon().canHit((Soldier) target)) {
+                            if (enemyToAttack != null) {
+                                if (enemyToAttack.getID() > target.getID()) {
+                                    enemyToAttack = (Soldier) target;
+                                }
+                            } else {
                                 enemyToAttack = (Soldier) target;
                             }
-                        } else {
-                            enemyToAttack = (Soldier) target;
                         }
                     }
                 }

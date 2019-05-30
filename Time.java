@@ -16,7 +16,7 @@ public class Time {
     }
 
     private static void mapUpdater(ArrayList<Being> beings){
-        Being[][] newMap = new Being[Map.getSie()][Map.getSie()];
+        Being[][] newMap = new Being[Map.getSize()][Map.getSize()];
         for (Being being : beings){
             newMap[being.getLocation().getX()][being.getLocation().getY()] = being;
         }

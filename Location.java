@@ -31,4 +31,9 @@ public class Location {
         }
         return false;
     }
+
+    @Override
+    public String toString() {
+        return "" + x + "," + y;
+    }
 }

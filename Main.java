@@ -31,11 +31,11 @@ public class Main {
                 beings.add(being);
             }
             else if (tempType.equals("SwordMan")){
-                Being being = new Swordsman(tempID, currentArmy , new Location(tempColumn , tempRow));
+                Being being = new SwordMan(tempID, currentArmy , new Location(tempColumn , tempRow));
                 beings.add(being);
             }
             else if (tempType.equals("SpearMan")){
-                Being being = new Spearman(tempID, currentArmy , new Location(tempColumn , tempRow));
+                Being being = new SpearMan(tempID, currentArmy , new Location(tempColumn , tempRow));
                 beings.add(being);
             }
         }

@@ -10,4 +10,8 @@ public class Tower extends Being {
             enemy.takeDamage(getWeapon().getDamage());
     }
 
+    @Override
+    public String toString() {
+        return "" + getID() + "," + "Tower" + "," + getLocation();
+    }
 }

@@ -1,13 +1,11 @@
-public class Swordsman extends Soldier {
+public class SpearMan extends Soldier{
 
-
-    public Swordsman(int ID, Army army, Location location) {
-        super(ID, new Sword(), new IronArmor() , location);
-        super.setHitpoints(5000);
+    public SpearMan(int ID, Army army, Location location) {
+        super(ID, new Javelin(), new IronArmor(), location);
+        super.setHitpoints(3000);
         super.setArmy(army);
-        super.setMovementDelay(2);
+        super.setMovementDelay(1);
     }
-
 
     @Override
     public void attack(Soldier enemy){
@@ -17,7 +15,12 @@ public class Swordsman extends Soldier {
                 this.location.setY(enemy.getLocation().getY());
                 this.location.setX(enemy.getLocation().getX());
             }
-            super.setAttackDelay(super.getAttackDelay() + 1);
         }
     }
+
+    @Override
+    public String toString() {
+        return "" + getID() + "," + "SpearMan" + "," + getHitpoints() + "," + getLocation();
+    }
 }
+

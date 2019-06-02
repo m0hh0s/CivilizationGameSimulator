@@ -16,6 +16,7 @@ public class Main {
         teamCreator(numberOfSoldiersTeam2 ,team2 ,beings , reader);
         int tick = reader.nextInt();
         Time.tick(tick , beings);
+        printResult(beings);
     }
 
     private static void teamCreator(int NumberOfSoldiers , Army currentArmy, ArrayList<Being> beings, Scanner reader){
@@ -38,6 +39,12 @@ public class Main {
                 Being being = new SpearMan(tempID, currentArmy , new Location(tempColumn , tempRow));
                 beings.add(being);
             }
+        }
+    }
+
+    private static void printResult(ArrayList<Being> beings){
+        for (Being being : beings){
+            System.out.println(being);
         }
     }
 }

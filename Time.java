@@ -6,7 +6,8 @@ public class Time {
         for (int i = 0 ; i < rounds ; i++){
             ArrayList <Action> currentRoundActions = new ArrayList<>();
             for (Being being : beings){
-                currentRoundActions.add(being.act());
+                if (being instanceof Tower || ((Soldier)being).isAlive())
+                    currentRoundActions.add(being.act());
             }
             for (Action action : currentRoundActions){
                 action.takeAction();
@@ -18,7 +19,9 @@ public class Time {
     private static void mapUpdater(ArrayList<Being> beings){
         Being[][] newMap = new Being[Map.getSize()][Map.getSize()];
         for (Being being : beings){
-            newMap[being.getLocation().getX()][being.getLocation().getY()] = being;
+            if (being instanceof Tower || ((Soldier)being).isAlive())
+                newMap[being.getLocation().getX()][being.getLocation().getY()] = being;
+            //System.out.println(being);
         }
         Map.setMap(newMap);
     }

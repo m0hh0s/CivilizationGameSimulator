@@ -5,6 +5,10 @@ public class MovementAction extends Action {
 
     @Override
     public void takeAction() {
-        ((Soldier) being).move();
+        if (!(being instanceof Tower))
+            ((Soldier) being).move();
+        else {
+            being.setCurrentAttackDelay(being.getCurrentAttackDelay() - 1);
+        }
     }
 }

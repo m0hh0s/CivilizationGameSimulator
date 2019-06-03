@@ -1,10 +1,35 @@
 public  abstract class Being implements IAttack , IAct{
     private int ID;
-    protected Location location;
+    private Location location;
     private Weapon weapon;
     private Armor armor;
-    protected boolean isAlive;
-    protected Army army;
+    private Army army;
+    private int maxAttackDelay;
+    private int currentAttackDelay;
+
+    public Being(int ID, Weapon weapon, Armor armor, Location location) {
+        this.ID = ID;
+        this.location = location;
+        weapon.setOwner(this);
+        this.weapon = weapon;
+        this.armor = armor;
+    }
+
+    public int getMaxAttackDelay() {
+        return maxAttackDelay;
+    }
+
+    public void setMaxAttackDelay(int maxAttackDelay) {
+        this.maxAttackDelay = maxAttackDelay;
+    }
+
+    public int getCurrentAttackDelay() {
+        return currentAttackDelay;
+    }
+
+    public void setCurrentAttackDelay(int currentAttackDelay) {
+        this.currentAttackDelay = currentAttackDelay;
+    }
 
     public int getID() {
         return ID;
@@ -24,24 +49,6 @@ public  abstract class Being implements IAttack , IAct{
 
     public void setArmor(Armor armor) {
         this.armor = armor;
-    }
-
-    public boolean isAlive() {
-        return isAlive;
-    }
-
-    public void setAlive(boolean alive) {
-        isAlive = alive;
-    }
-
-    public Being(int ID, Weapon weapon, Armor armor, Location location) {
-        this.ID = ID;
-        this.location = location;
-        weapon.setOwner(this);
-        this.weapon = weapon;
-        this.armor = armor;
-        this.isAlive = true;
-
     }
 
     public void setArmy(Army army) {

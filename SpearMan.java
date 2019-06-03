@@ -2,9 +2,12 @@ public class SpearMan extends Soldier{
 
     public SpearMan(int ID, Army army, Location location) {
         super(ID, new Javelin(), new IronArmor(), location);
-        super.setHitpoints(3000);
-        super.setArmy(army);
-        super.setMovementDelay(1);
+        setHitpoints(3000);
+        setArmy(army);
+        setMaxAttackDelay(getWeapon().getLoadingTime());
+        setCurrentAttackDelay(getMaxAttackDelay());
+        setMaxMovementDelay(getArmor().getWeight());
+        setCurrentMovementDelay(getMaxMovementDelay());
     }
 
     @Override
@@ -12,8 +15,8 @@ public class SpearMan extends Soldier{
         if (getWeapon().canHit(enemy)) {
             enemy.takeDamage(getWeapon().getDamage());
             if (!enemy.isAlive()){
-                this.location.setY(enemy.getLocation().getY());
-                this.location.setX(enemy.getLocation().getX());
+                this.getLocation().setY(enemy.getLocation().getY());
+                this.getLocation().setX(enemy.getLocation().getX());
             }
         }
     }

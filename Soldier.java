@@ -54,8 +54,7 @@ public abstract class Soldier extends Being {
         setCurrentAttackDelay(getCurrentAttackDelay() - 1);
         if (getCurrentMovementDelay() > 0){
             setCurrentMovementDelay(getCurrentMovementDelay() - 1);
-        }
-        else {
+        } else {
             if (isMovingUp) {
                 if (getLocation().getY() + 1 == Map.getSize()) {
                     isMovingUp = false;

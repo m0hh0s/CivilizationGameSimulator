@@ -1,5 +1,5 @@
-public class IronArmor extends Armor {
-    public IronArmor() {
+class IronArmor extends Armor {
+    IronArmor() {
         super(20, 3);
     }
 }

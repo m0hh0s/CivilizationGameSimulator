@@ -1,7 +1,7 @@
 public class AttackAction extends Action {
     private Soldier enemy;
 
-    public AttackAction(Being being, Soldier enemy) {
+    AttackAction(Being being, Soldier enemy) {
         super(being);
         this.enemy = enemy;
     }

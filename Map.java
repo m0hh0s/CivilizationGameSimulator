@@ -1,21 +1,21 @@
-public class Map {
+class Map {
     private static int size;
     private static Being[][] map;
 
-    public Map(int size) {
-        this.size = size;
+    Map(int size) {
+        Map.size = size;
         map = new Being[size][size];
     }
 
-    public static Being[][] getMap() {
+    static Being[][] getMap() {
         return map;
     }
 
-    public static void setMap(Being[][] map1){
+    static void setMap(Being[][] map1){
         map = map1;
     }
 
-    public static int getSize(){
+    static int getSize(){
         return size;
     }
 }

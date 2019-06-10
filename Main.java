@@ -7,7 +7,7 @@ public class Main {
 
     public static void main(String[] args) {
         int mapSize = reader.nextInt();
-        Map map = new Map(mapSize);
+        new Map(mapSize);
         int numberOfSoldiersTeam1 = reader.nextInt();
         int numberOfSoldiersTeam2 = reader.nextInt();
         reader.nextLine();
@@ -18,6 +18,12 @@ public class Main {
         String tempString = reader.nextLine();
         while (!tempString.equals("terminate")){
             tempString = tempString.replaceAll("tick " , "");
+//            int tick = 0;
+//            try {
+//                tick = Integer.parseInt(tempString);
+//            }catch (NumberFormatException e){
+//                return;
+//            }
             int tick = Integer.parseInt(tempString);
             Time.tick(tick , beings);
             printResult(beings);

@@ -11,7 +11,7 @@ public abstract class Soldier extends Being {
         setAlive(true);
     }
 
-    public void setAlive(boolean alive) {
+    private void setAlive(boolean alive) {
         isAlive = alive;
     }
 
@@ -21,11 +21,11 @@ public abstract class Soldier extends Being {
         isMovingUp = getArmy().getGroup().equals("group 1");
     }
 
-    public void setHitpoints(int hitpoints) {
+    void setHitpoints(int hitpoints) {
         this.hitpoints = hitpoints;
     }
 
-    public boolean isAlive() {
+    boolean isAlive() {
         if (getHitpoints() <= 0) {
             getLocation().setX(-1);
             getLocation().setY(-1);
@@ -50,20 +50,19 @@ public abstract class Soldier extends Being {
         }
     }
 
-    public void move() {
-        setCurrentAttackDelay(getCurrentAttackDelay() - 1);
-        if (getCurrentMovementDelay() > 0){
-            setCurrentMovementDelay(getCurrentMovementDelay() - 1);
-        } else {
+    void move() {
+        setCurrentMovementDelay(getCurrentMovementDelay() - 1);
+        if (getCurrentMovementDelay() <= 0) {
             if (isMovingUp) {
                 if (getLocation().getY() + 1 == Map.getSize()) {
                     isMovingUp = false;
                     move();
                 } else if (Map.getMap()[getLocation().getX()][getLocation().getY() + 1] instanceof Tower) {
                     moveRightOrLeft();
-
+                    setCurrentAttackDelay(getCurrentAttackDelay() - 1);
                 } else {
                     getLocation().setY(getLocation().getY() + 1);
+                    setCurrentAttackDelay(getCurrentAttackDelay() - 1);
                 }
             } else {
                 if (getLocation().getY() == 0) {
@@ -71,45 +70,43 @@ public abstract class Soldier extends Being {
                     move();
                 } else if (Map.getMap()[getLocation().getX()][getLocation().getY() - 1] instanceof Tower) {
                     moveRightOrLeft();
+                    setCurrentAttackDelay(getCurrentAttackDelay() - 1);
                 } else {
                     getLocation().setY(getLocation().getY() - 1);
+                    setCurrentAttackDelay(getCurrentAttackDelay() - 1);
                 }
             }
             setCurrentMovementDelay(getMaxMovementDelay());
         }
     }
 
-    public int getHitpoints() {
+    int getHitpoints() {
         if (hitpoints < 0)
             return 0;
         return hitpoints;
     }
 
-    public void takeDamage(int damageTaken) {
+    void takeDamage(int damageTaken) {
         hitpoints -= ( (100 - (double) getArmor().getDamageReduction()) / 100.0) * damageTaken;
     }
 
-    public int getMaxMovementDelay() {
+    int getMaxMovementDelay() {
         return maxMovementDelay;
     }
 
-    public void setMaxMovementDelay(int maxMovementDelay) {
+    void setMaxMovementDelay(int maxMovementDelay) {
         this.maxMovementDelay = maxMovementDelay;
     }
 
-    public int getCurrentMovementDelay() {
+    private int getCurrentMovementDelay() {
         return currentMovementDelay;
     }
 
-    public void setCurrentMovementDelay(int currentMovementDelay) {
+    void setCurrentMovementDelay(int currentMovementDelay) {
         this.currentMovementDelay = currentMovementDelay;
     }
 
-    public boolean isMovingUp() {
+    boolean isMovingUp() {
         return isMovingUp;
-    }
-
-    public void setMovingUp(boolean movingUp) {
-        isMovingUp = movingUp;
     }
 }

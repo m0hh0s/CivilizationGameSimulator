@@ -15,59 +15,43 @@ public  abstract class Being implements IAttack , IAct{
         this.armor = armor;
     }
 
-    public int getMaxAttackDelay() {
+    int getMaxAttackDelay() {
         return maxAttackDelay;
     }
 
-    public void setMaxAttackDelay(int maxAttackDelay) {
+    void setMaxAttackDelay(int maxAttackDelay) {
         this.maxAttackDelay = maxAttackDelay;
     }
 
-    public int getCurrentAttackDelay() {
+    int getCurrentAttackDelay() {
         return currentAttackDelay;
     }
 
-    public void setCurrentAttackDelay(int currentAttackDelay) {
+    void setCurrentAttackDelay(int currentAttackDelay) {
         this.currentAttackDelay = currentAttackDelay;
     }
 
-    public int getID() {
+    int getID() {
         return ID;
-    }
-
-    public void setID(int ID) {
-        this.ID = ID;
-    }
-
-    public void setLocation(Location location) {
-        this.location = location;
-    }
-
-    public void setWeapon(Weapon weapon) {
-        this.weapon = weapon;
-    }
-
-    public void setArmor(Armor armor) {
-        this.armor = armor;
     }
 
     public void setArmy(Army army) {
         this.army = army;
     }
 
-    public Army getArmy() {
+    Army getArmy() {
         return army;
     }
 
-    public Location getLocation() {
+    Location getLocation() {
         return location;
     }
 
-    public Weapon getWeapon() {
+    Weapon getWeapon() {
         return weapon;
     }
 
-    public Armor getArmor() {
+    Armor getArmor() {
         return armor;
     }
 
@@ -99,5 +83,4 @@ public  abstract class Being implements IAttack , IAct{
         }
 
     }
-
 }

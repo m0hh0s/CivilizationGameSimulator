@@ -1,5 +1,5 @@
 public class MovementAction extends Action {
-    public MovementAction(Being being) {
+    MovementAction(Being being) {
         super(being);
     }
 

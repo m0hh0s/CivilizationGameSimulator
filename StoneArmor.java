@@ -1,5 +1,5 @@
-public class StoneArmor extends Armor {
-    public StoneArmor() {
+class StoneArmor extends Armor {
+    StoneArmor() {
         super(100 , 999999999);
     }
 }

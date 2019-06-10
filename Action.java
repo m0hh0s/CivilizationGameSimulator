@@ -1,7 +1,7 @@
 public abstract class Action {
     protected Being being;
 
-    public Action(Being being) {
+    Action(Being being) {
         this.being = being;
     }
 

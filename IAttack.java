@@ -1,3 +1,3 @@
 public interface IAttack {
-    public void attack(Soldier enemy);
+    void attack(Soldier enemy);
 }

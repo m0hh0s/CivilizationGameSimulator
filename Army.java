@@ -1,11 +1,11 @@
-public class Army {
+class Army {
     private String group;
 
-    public Army(String group) {
+    Army(String group) {
         this.group = group;
     }
 
-    public String getGroup() {
+    String getGroup() {
         return group;
     }
 }

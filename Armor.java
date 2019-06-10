@@ -1,17 +1,17 @@
-public class Armor {
+class Armor {
     private int damageReduction;
     private int weight;
 
-    public Armor(int damageReduction, int weight) {
+    Armor(int damageReduction, int weight) {
         this.damageReduction = damageReduction;
         this.weight = weight;
     }
 
-    public int getDamageReduction() {
+    int getDamageReduction() {
         return damageReduction;
     }
 
-    public int getWeight() {
+    int getWeight() {
         return weight;
     }
 }
